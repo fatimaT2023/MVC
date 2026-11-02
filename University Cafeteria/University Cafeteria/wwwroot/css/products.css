@@ -1,0 +1,22 @@
+﻿body {
+    background-color: #eef5ff;
+}
+
+h2 {
+    color: #164a80;
+    text-align: center;
+}
+
+.product-list {
+    list-style-type: square;
+    padding: 20px 40px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+    .product-list li {
+        color: #164a80;
+        padding: 8px;
+        margin-bottom: 5px;
+        border-bottom: 1px solid #dddddd;
+    }
