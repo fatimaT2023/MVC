@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "Suppliers";
+}
+
+<div class="container mt-5">
+    <div class="card shadow" style="width: 22rem;">
+
+        <div class="card-body">
+
+            <h5 class="card-title">
+                @ViewBag.PageTitle
+            </h5>
+
+            <p class="card-text">
+                Number of Suppliers: @ViewBag.NumberOfSuppliers
+            </p>
+
+            <ul class="list-group list-group-flush">
+                @foreach (string supplier in ViewBag.Suppliers)
+                {
+                    <li class="list-group-item">
+                        @supplier
+                    </li>
+                }
+            </ul>
+
+        </div>
+    </div>
+</div>

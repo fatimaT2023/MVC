@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Home";
+}
+<div class="container mt-5">
+    <div class="card shadow" style="width: 22rem;">
+
+        <div class="card-body">
+
+            <h5 class="card-title">
+                Product Categories
+            </h5>
+
+            <ul class="list-group list-group-flush">
+                @foreach (string category in ViewBag.Categories)
+                {
+                    <li class="list-group-item">
+                        @category
+                    </li>
+                }
+            </ul>
+
+        </div>
+    </div>
+</div>
