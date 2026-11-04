@@ -58,7 +58,8 @@ namespace University_Cafeteria.Controllers
             {
                 ViewBag.Message = "Error: Employee Name is required!";
             }
-           TempData["Message"] = "Request submitted successfully!";
+            TempData["Message"] = $"Success: Request for {quantity} - {productName} " +
+        $"submitted by {employeeName} (required by {requiredDate}).";
             return RedirectToAction("About");
         }
         public IActionResult About()

@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container mt-5">
+
+    <h1>ASP.NET Core MVC - Day 4</h1>
+
+    <p>Choose a topic:</p>
+
+    <a href="@Url.Action("About", "Home")"
+       class="btn btn-secondary">
+        About
+    </a>
+
+    <a href="@Url.Action("Index", "Session")"
+       class="btn btn-primary">
+        Session Example
+    </a>
+
+    <a href="@Url.Action("Index", "Cookie")"
+       class="btn btn-success">
+        Cookies Example
+    </a>
+
+    <a href="@Url.Action("Index", "Calculator")"
+       class="btn btn-warning">
+        Calculator
+    </a>
+
+</div>

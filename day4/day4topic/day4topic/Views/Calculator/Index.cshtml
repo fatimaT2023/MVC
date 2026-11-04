@@ -1,0 +1,66 @@
+﻿@model day4topic.Models.CalculatorModel
+
+@{
+    ViewData["Title"] = "Calculator";
+}
+
+<div class="container mt-4">
+
+    <h2>Simple Calculator</h2>
+
+    <form asp-controller="Calculator"
+          asp-action="Index"
+          method="post">
+
+        <div class="mb-3">
+            <label>First Number</label>
+
+            <input asp-for="Number1"
+                   type="number"
+                   class="form-control"
+                   required />
+        </div>
+
+        <div class="mb-3">
+            <label>Second Number</label>
+
+            <input asp-for="Number2"
+                   type="number"
+                   class="form-control"
+                   required />
+        </div>
+
+        <div class="mb-3">
+            <label>Operation</label>
+
+            <select asp-for="Operation"
+                    class="form-select">
+
+                <option value="+">Addition (+)</option>
+                <option value="-">Subtraction (-)</option>
+                <option value="*">Multiplication (*)</option>
+                <option value="/">Division (/)</option>
+
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Calculate
+        </button>
+    </form>
+
+    @if (Model.ErrorMessage != null)
+    {
+        <div class="alert alert-danger mt-3">
+            @Model.ErrorMessage
+        </div>
+    }
+
+    @if (Model.Result != null)
+    {
+        <div class="alert alert-success mt-3">
+            Result: @Model.Result
+        </div>
+    }
+
+</div>

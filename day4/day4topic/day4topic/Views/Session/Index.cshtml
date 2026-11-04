@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Session Example";
+}
+
+<div class="container mt-4">
+
+    <h2>Session Example</h2>
+
+    <form asp-controller="Session"
+          asp-action="Save"
+          method="post">
+
+        <label>Username:</label>
+
+        <input type="text"
+               name="name"
+               class="form-control"
+               required />
+
+        <label>Age:</label>
+
+        <input type="number"
+               name="age"
+               class="form-control"
+               required />
+
+        <button type="submit">
+            Save Session
+        </button>
+
+    </form>
+
+    <hr />
+
+    <h3>Saved Data</h3>
+
+    <p>Name: @(ViewBag.Name ?? "Not saved")</p>
+    <p>Age: @(ViewBag.Age?.ToString() ?? "Not saved")</p>
+
+    <form asp-controller="Session"
+          asp-action="Delete"
+          method="post">
+
+        <button type="submit" class="btn btn-danger">
+            Delete Session
+        </button>
+    </form>
+
+</div>

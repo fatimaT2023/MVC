@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+
+<div class="container mt-4">
+
+    <h2>About Our System</h2>
+
+    <div class="card mt-3">
+        <div class="card-body">
+
+            <h4>Application Name</h4>
+            <p>
+                University Cafeteria Supply Management System
+            </p>
+
+            <hr />
+
+            <h4>Feature Name</h4>
+            <p>
+                Supply Request Management
+            </p>
+
+            <hr />
+
+            <h4>Description</h4>
+            <p>
+                This feature helps cafeteria employees create,
+                manage, review, and calculate supply requests.
+            </p>
+
+        </div>
+    </div>
+
+    <a href="@Url.Action("Index", "SupplyRequest")"
+       class="btn btn-primary mt-3">
+        Back to Create Supply Request
+    </a>
+
+</div>

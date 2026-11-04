@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Desktop\\MVC\\MVC\\University Cafeteria\\University Cafeteria\\University Cafeteria.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\MVC\\MVC\\UniversityCafeteria\\University Cafeteria\\University Cafeteria.csproj",
       "projectName": "University Cafeteria",
-      "projectPath": "C:\\Users\\user\\Desktop\\MVC\\MVC\\University Cafeteria\\University Cafeteria\\University Cafeteria.csproj",
+      "projectPath": "C:\\Users\\user\\Desktop\\MVC\\MVC\\UniversityCafeteria\\University Cafeteria\\University Cafeteria.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Desktop\\MVC\\MVC\\University Cafeteria\\University Cafeteria\\obj\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\MVC\\MVC\\UniversityCafeteria\\University Cafeteria\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

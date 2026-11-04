@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "cookies example";
+}
+<div class="container mb-3">        
+    <h2>Cookies Example</h2>
+    <form asp-controller="Cookie"
+          asp-action="Save"
+          method="post">
+
+        <label>Username:</label>
+
+        <input type="text"
+               name="username"
+               class="form-control"
+               required />
+
+        <button type="submit" class="btn btn-success">
+            Save Cookie
+        </button>
+
+    </form>
+
+    @if (TempData["Error"] != null)
+    {
+        <p style="color:red">@TempData["Error"]</p>
+    }
+<hr />
+
+    <h3> Saved Cookies </h3>
+<p>
+        @ViewBag.Username??"no cookies found"
+</p>
+<form asp-controller="Cookie" asp-action="Delete" method="post">
+
+
+    <button type="submit" class="btn btn-danger">Delete Cookie</button>
+</form>
+</div>

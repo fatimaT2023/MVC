@@ -11,32 +11,61 @@
 </head>
 <body>
     <header class="bg-dark text-white p-3">
-        <h1>University Cafeteria</h1>
+        <h3 class="mb-0">University Cafeteria</h3>
 
         <nav>
-            <a class="text-white me-3"
-               asp-controller="Supply"
-               asp-action="Index">Home</a>
+            <ul class="navbar-nav flex-row flex-wrap gap-4">
 
-            <a class="text-white me-3"
-               asp-controller="Supply"
-               asp-action="Products">Products</a>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="@Url.Action("Index", "Home")">
+                        Home
+                    </a>
+                </li>
 
-            <a class="text-white me-3"
-               asp-controller="Supply"
-               asp-action="Suppliers">Suppliers</a>
+                @* <li class="nav-item">
+                    <a class="nav-link"
+                       href="@Url.Action("Index", "Products")">
+                        Products
+                    </a>
+                </li> *@
 
-            <a class="text-white"
-               asp-controller="Supply"
-               asp-action="SupplyStatus">Supply Status</a>
-<a asp-controller="Supply"
-   asp-action="CreateRequest">
-    Create Request
-</a>
-<a asp-controller="Supply"
-   asp-action="About">
-    About
-</a>
+                @* <li class="nav-item">
+                    <a class="nav-link"
+                       href="@Url.Action("Index", "Suppliers")">
+                        Suppliers
+                    </a>
+                </li> *@
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="@Url.Action("Index", "SupplyRequest")">
+                        Create Supply Request
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="@Url.Action("Review", "SupplyRequest")">
+                        Review Draft
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="@Url.Action("MyRequests", "SupplyRequest")">
+                        My Requests
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="@Url.Action("About", "SupplyRequest")">
+                        About
+                    </a>
+                </li>
+
+            </ul>
 
         </nav>
     </header>
