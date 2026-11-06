@@ -1,0 +1,90 @@
+﻿@using AcademyGraduationSupplyManagement.Models
+@model List<Offer>
+
+@{
+    ViewData["Title"] = "Review Selected Offers";
+}
+
+<h2>Review Selected Offers</h2>
+
+@*
+
+PHASE 1 & 2 - OLD REVIEW TABLE
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Supplier</th>
+            <th>Offer Name</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Total Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var offer in Model)
+*@
+
+@* 
+   PHASE 3 - NEW REVIEW TABLE        {
+            <tr>
+                <td>@offer.Category</td>
+                <td>@offer.SupplierName</td>
+                <td>@offer.OfferName</td>
+                <td>@offer.Quantity</td>
+                <td>@offer.UnitPrice JD</td>
+                <td>@ViewBag.OfferTotals[offer.Id] JD</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+   *@
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Supplier</th>
+            <th>Offer Name</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Total Price</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var offer in Model)
+        {
+            <tr>
+                <td>@offer.Category.Name</td>
+                <td>@offer.Supplier.Name</td>
+                <td>@offer.OfferName</td>
+                <td>@offer.Quantity</td>
+                <td>@offer.UnitPrice JD</td>
+                <td>@ViewBag.OfferTotals[offer.Id] JD</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@* 
+   TOTALS AND DISCOUNTS
+   Same  as Phase 1 & 2
+  *@
+
+<h4>Total Price: @ViewBag.TotalPrice JD</h4>
+
+<h4>Discount: @ViewBag.DiscountPercentage %</h4>
+
+<h4>Discount Amount: @ViewBag.DiscountAmount JD</h4>
+
+<h3>Final Total: @ViewBag.FinalTotal JD</h3>
+
+<a href="@Url.Action("Index", "Supply")"
+   class="btn btn-secondary">
+    Back to Offers
+</a>

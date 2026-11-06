@@ -1,0 +1,100 @@
+﻿@using AcademyGraduationSupplyManagement.Models
+@model List<Offer>
+
+@{
+    ViewData["Title"] = "Supply Offers";
+}
+
+<h2>Graduation Ceremony Supply Offers</h2>
+
+<form asp-controller="Supply"
+      asp-action="SelectOffers"
+      method="post">
+
+    @*
+    
+    PHASE 1 & 2 
+
+    @foreach (var category in Model.Select(o => o.Category).Distinct())
+    {
+        <h3>@category</h3>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Supplier</th>
+                    <th>Offer Name</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Select</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var offer in Model.Where(o => o.Category == category))
+                {
+                    <tr>
+                        <td>@offer.SupplierName</td>
+                        <td>@offer.OfferName</td>
+                        <td>@offer.Quantity</td>
+                        <td>@offer.UnitPrice JD</td>
+                        <td>
+                            <input type="radio"
+                                   name="selectedOffers[@category]"
+                                   value="@offer.Id"
+                                   required />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+  
+    *@
+
+    @*
+  
+       Display Offers from Database
+   *@
+
+    @foreach (var categoryGroup in Model.GroupBy(o => o.Category.Name))
+    {
+        <h3>@categoryGroup.Key</h3>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Supplier</th>
+                    <th>Offer Name</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Select</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var offer in categoryGroup)
+                {
+                    <tr>
+                        <td>@offer.Supplier.Name</td>
+                        <td>@offer.OfferName</td>
+                        <td>@offer.Quantity</td>
+                        <td>@offer.UnitPrice JD</td>
+                        <td>
+                            <input type="radio"
+                                   name="selectedOffers[@categoryGroup.Key]"
+                                   value="@offer.Id"
+                                   required />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    <button type="submit" class="btn btn-success">
+        Save Selected Offers
+    </button>
+
+</form>
