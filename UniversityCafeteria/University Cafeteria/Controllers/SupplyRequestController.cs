@@ -47,6 +47,7 @@ namespace University_Cafeteria.Controllers
         //BindingAddress a product to the request
         [HttpPost]
         [ValidateAntiForgeryToken]
+        //model bindding for add product to the request
         public IActionResult AddItem(
     string? productName,
     string? category,
