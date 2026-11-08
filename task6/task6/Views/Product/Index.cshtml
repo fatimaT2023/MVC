@@ -1,0 +1,35 @@
+﻿@model IEnumerable<task6.Models.Product>
+
+<h2>Products</h2>
+
+<a href="@Url.Action("Create", "Product")"
+   class="btn btn-primary">
+    Add Product
+</a>
+
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Category</th>
+            <th>Supplier</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m => item.Id)</td>
+                <td>@Html.DisplayFor(m => item.Name)</td>
+                <td>@Html.DisplayFor(m => item.Price)</td>
+                <td>@Html.DisplayFor(m => item.Quantity)</td>
+                <td>@Html.DisplayFor(m => item.Category.Name)</td>
+                <td>@Html.DisplayFor(m => item.Supplier.Name)</td>
+            </tr>
+        }
+    </tbody>
+</table>
