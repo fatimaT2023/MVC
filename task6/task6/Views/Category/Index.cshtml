@@ -3,7 +3,8 @@
 *@
 @{
 }
-@model IEnumerable<task6.Models.Category>
+
+@model IEnumerable<task6.Models.Category>   // الخطوه ااثالثه (get all ) model for category  لاستقبال لبياناات
 
 <h2>Categories</h2>
 
@@ -20,12 +21,13 @@
             <th>Description</th>
         </tr>
     </thead>
-
+   
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
                 <td>@Html.DisplayFor(m => item.Id)</td>
+ 
                 <td>@Html.DisplayFor(m => item.Name)</td>
                 <td>@Html.DisplayFor(m => item.Description)</td>
             </tr>

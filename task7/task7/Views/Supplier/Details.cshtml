@@ -1,0 +1,12 @@
+﻿@model task7.Models.Supplier7
+
+<h2>Supplier Details</h2>
+
+<p><strong>ID:</strong> @Model.Id</p>
+<p><strong>Name:</strong> @Model.Name</p>
+<p><strong>Phone:</strong> @Model.phone</p>
+<p><strong>Email:</strong> @Model.email</p>
+<p><strong>Address:</strong> @Model.address</p>
+<p><strong>Products Count:</strong> @Model.Products.Count</p>
+
+<a asp-action="Index" class="btn btn-secondary">Back</a>

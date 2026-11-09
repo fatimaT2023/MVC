@@ -1,0 +1,25 @@
+﻿@model task6.Models.Category //شو نوع الباكج الي رح يستقبل البيانات من الفورم
+
+<h2>Add Category</h2>
+
+
+@using (Html.BeginForm("Create", "Category", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name,
+            new { @class = "form-control" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Description)
+        @Html.TextBoxFor(m => m.Description,
+            new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-success">
+        Save
+    </button>
+}
