@@ -1,0 +1,42 @@
+﻿@model task8.Models.SupplyRequestDTO
+@using task8.Models
+
+<h2>Create Supply Request</h2>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    @{
+        var products = (List<Product>)ViewBag.Products;
+    }
+
+    <table class="table">
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Available</th>
+            <th>Quantity</th>
+        </tr>
+
+        @for (int i = 0; i < products.Count; i++)
+        {
+            <tr>
+                <td>@products[i].Name</td>
+                <td>@products[i].Price JD</td>
+                <td>@products[i].Quantity</td>
+                <td>
+                    <input type="hidden"
+                           name="Items[@i].ProductId"
+                           value="@products[i].Id" />
+
+                    <input type="number"
+                           name="Items[@i].Quantity"
+                           value="0" min="0"
+                           class="form-control" />
+                </td>
+            </tr>
+        }
+    </table>
+
+    <button class="btn btn-success">Submit Request</button>
+</form>

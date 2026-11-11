@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+        <h1 class="fw-bold text-success">
+            University Cafeteria
+        </h1>
+
+        <h4>Supply Request Management System</h4>
+
+        <p class="text-muted">
+            Manage products, supply requests, and users
+            from one place.
+        </p>
+    </div>
+
+    @if (!User.Identity!.IsAuthenticated)
+    {
+        <div class="text-center mb-5">
+            <h5>Welcome! Please login or create an account.</h5>
+
+            <a asp-controller="Account"
+               asp-action="Login"
+               class="btn btn-success m-2">
+                Login
+            </a>
+
+            <a asp-controller="Account"
+               asp-action="Register"
+               class="btn btn-outline-success m-2">
+                Register
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-success text-center">
+            Welcome, @User.Identity.Name!
+        </div>
+    }
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100 text-center">
+                <div class="card-body">
+                    <h3>Products</h3>
+                    <p>View available cafeteria products.</p>
+
+                    <a asp-controller="Product"
+                       asp-action="Index"
+                       class="btn btn-success">
+                        View Products
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        @if (User.Identity!.IsAuthenticated)
+        {
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 text-center">
+                    <div class="card-body">
+                        <h3>Supply Requests</h3>
+                        <p>Create and manage supply requests.</p>
+
+                        <a asp-controller="SupplyRequest"
+                           asp-action="Index"
+                           class="btn btn-success">
+                            My Requests
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 text-center">
+                    <div class="card-body">
+                        <h3>Create Request</h3>
+                        <p>Select products and quantities.</p>
+
+                        <a asp-controller="SupplyRequest"
+                           asp-action="Create"
+                           class="btn btn-success">
+                            Create Request
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @if (User.IsInRole("Admin") ||
+             User.IsInRole("SuperAdmin"))
+        {
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 text-center">
+                    <div class="card-body">
+                        <h3>Manage Products</h3>
+                        <p>Add new products to the cafeteria.</p>
+
+                        <a asp-controller="Product"
+                           asp-action="Create"
+                           class="btn btn-primary">
+                            Add Product
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @if (User.IsInRole("SuperAdmin"))
+        {
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 text-center">
+                    <div class="card-body">
+                        <h3>Manage Users</h3>
+                        <p>View users and manage their roles.</p>
+
+                        <a asp-controller="Admin"
+                           asp-action="Index"
+                           class="btn btn-dark">
+                            Manage Users
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<task8.Models.Product>
+
+<h2>Products</h2>
+
+@if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+{
+    <a asp-action="Create" class="btn btn-success mb-3">
+        Add Product
+    </a>
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price JD</td>
+                <td>@product.Quantity</td>
+                <td>
+                    <a asp-action="Details"
+                       asp-route-id="@product.Id">Details</a>
+
+                    @if (User.IsInRole("Admin") ||
+                         User.IsInRole("SuperAdmin"))
+                    {
+                        <a asp-action="Edit"
+                           asp-route-id="@product.Id">Edit</a>
+
+                        <a asp-action="Delete"
+                           asp-route-id="@product.Id">Delete</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

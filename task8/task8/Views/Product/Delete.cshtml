@@ -1,0 +1,15 @@
+﻿@model task8.Models.Product
+
+<h2>Delete Product</h2>
+
+<p>Are you sure you want to delete @Model.Name?</p>
+
+<form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+    <button type="submit" class="btn btn-danger">
+        Confirm Delete
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Cancel
+    </a>
+</form>

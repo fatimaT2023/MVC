@@ -1,0 +1,21 @@
+﻿@model task8.Models.LoginDTO
+
+<h2>Login</h2>
+
+<form asp-action="Login" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <input asp-for="Email" class="form-control mb-2"
+           placeholder="Email" />
+
+    <input asp-for="Password" type="password"
+           class="form-control mb-2" placeholder="Password" />
+
+           <br />
+
+    <label>
+        <input asp-for="RememberMe" /> Remember Me
+    </label>
+
+    <button class="btn btn-primary">Login</button>
+</form>

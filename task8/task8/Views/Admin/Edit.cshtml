@@ -1,0 +1,24 @@
+﻿@model task8.Models.UserRoleDTO
+
+<h2>Edit User Role</h2>
+
+<p><strong>Name:</strong> @Model.FullName</p>
+<p><strong>Email:</strong> @Model.Email</p>
+
+<form asp-action="Edit" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <input type="hidden" asp-for="Id" />
+
+    <label>Role</label>
+
+    <select asp-for="Role" class="form-select mb-3">
+        <option value="User">User</option>
+        <option value="Admin">Admin</option>
+        <option value="SuperAdmin">SuperAdmin</option>
+    </select>
+
+    <button type="submit" class="btn btn-success">
+        Save Changes
+    </button>
+</form>

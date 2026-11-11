@@ -1,0 +1,21 @@
+﻿@model task8.Models.RegisterDTO
+
+<h2>Register</h2>
+
+<form asp-action="Register" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <input asp-for="FullName" class="form-control mb-2"
+           placeholder="Full Name" />
+
+    <input asp-for="Email" class="form-control mb-2"
+           placeholder="Email" />
+
+    <input asp-for="Password" type="password"
+           class="form-control mb-2" placeholder="Password" />
+
+    <input asp-for="ConfirmPassword" type="password"
+           class="form-control mb-2" placeholder="Confirm Password" />
+
+    <button class="btn btn-success">Register</button>
+</form>

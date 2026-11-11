@@ -1,0 +1,10 @@
+﻿@model task8.Models.SupplyRequest
+
+<h2>Delete Request</h2>
+
+<p>Are you sure you want to delete request #@Model.Id?</p>
+
+<form method="post">
+    <button class="btn btn-danger">Confirm Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

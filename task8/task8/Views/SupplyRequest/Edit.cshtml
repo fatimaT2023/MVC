@@ -1,0 +1,34 @@
+﻿@model task8.Models.SupplyRequestDTO
+@using task8.Models
+
+<h2>Edit Supply Request</h2>
+
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    @{
+        var products = (List<Product>)ViewBag.Products;
+    }
+
+    @for (int i = 0; i < products.Count; i++)
+    {
+        var item = Model.Items.FirstOrDefault(x =>
+            x.ProductId == products[i].Id);
+
+        <div class="mb-3">
+            <label>@products[i].Name - @products[i].Price JD</label>
+
+            <input type="hidden"
+                   name="Items[@i].ProductId"
+                   value="@products[i].Id" />
+
+            <input type="number"
+                   name="Items[@i].Quantity"
+                   value="@(item?.Quantity ?? 0)"
+                   min="0"
+                   class="form-control" />
+        </div>
+    }
+
+    <button class="btn btn-primary">Save Changes</button>
+</form>
